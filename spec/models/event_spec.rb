@@ -30,7 +30,4 @@ RSpec.describe Event, type: :model do
 
   end
 
-  context 'scope tests' do
-
-    end
 end
