@@ -1,0 +1,53 @@
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+
+.background {
+  background-color: #6F98E8;
+  height: 100%;
+}
+
+.container {
+  padding: 0px;
+  background-color: #88CFFF;
+  border: 5px;
+  border-style: solid;
+  border-color: black;
+}
+
+.list {
+  padding: 5px;
+  list-style: none;
+  background-color: #7AFFED;
+  border: 1px;
+  border-style: solid;
+  border-color: black;
+}
+
+.event {
+  padding-top: 5px;
+  border: 3px;
+  border-style: solid;
+  border-color: black;
+  width: 40%;
+}
+
+.details {
+  background-color: #6F98E8;
+  width: 100%;
+  padding: 10px;
+  border-style: solid;
+  border: 3px;
+  border-color: black;
+}
+
+.btn-info {
+  background-color: #7AFFED;
+}
+
+.esport {
+  width: 200px;
+  height: 200px;
+}

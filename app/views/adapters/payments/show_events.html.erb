@@ -1,0 +1,35 @@
+<div class="container">
+
+  <h1><%= @event.name %></h1>
+  <br>
+  <div class="img">
+    <%= image_tag ("esport1.jpg"), :class => "esport" %>
+  </div>
+  <h3> Description of the Event: </h3>
+    <p class="description">
+      <% 25.times do %>
+        <%= @event.description %>
+      <% end %>
+    </p>
+  <br>
+
+  <div class="details">
+
+    <h3>Available Tickets: <%= @tickets.available_tickets %></h3>
+    <h3>Price: €<%= @tickets.price %></h3>
+
+    <br>
+
+    <h4>Date: <%= @event.date.strftime("%-d/%-m/%y") %></h4>
+    <h4>Time: <%= @event.date.strftime("%H:%M %Z") %></h4>
+    <br>
+
+    <%= form_tag order_tickets_path do %>
+      <%= hidden_field_tag :tickets_id, @tickets.id %>
+      <%= number_field_tag :order_tickets_quantity,  1 %>
+      <%= submit_tag "Add to Cart" %>
+    <% end %>
+
+  </div>
+  
+</div>

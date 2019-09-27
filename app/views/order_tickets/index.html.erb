@@ -1,0 +1,26 @@
+<h2>Current Cart</h2>
+
+<table>
+  <thead>
+    <tr>
+      <td>Event</td>
+      <td>Price</td>
+      <td>Quantity</td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event.name %></td>
+        <td><%= event.ticket.price %></td>
+        <td><%= event.order_ticket.quantity %></td>
+        <td>
+          <%= form_for ticket, method: :delete do |f| %>
+            <%= f.submit "Remove" %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

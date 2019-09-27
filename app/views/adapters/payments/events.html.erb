@@ -1,0 +1,20 @@
+
+
+
+<div class="container">
+  <h1>List of Esports Events</h1>
+  <br>
+  <li class="list"><% @events.each do |event| %>
+      <div class="event"><h3><ul id="name"><%= event.name %></ul></h3>
+
+      <!-- < % @tickets.each do |ticket| %>
+        <ul> Ticket Price: < %= ticket.price %></ul>
+        <ul> Available Tickets: < %= ticket.available_tickets %></ul>
+      < % end %> -->
+
+      <ul class="btn btn-info"><%= link_to "details", adapters_payments_event_path(event.id) %></ul></div>
+      <br>
+    <% end %>
+
+  </li>
+</div>
