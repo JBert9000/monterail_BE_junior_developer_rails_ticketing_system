@@ -4,16 +4,18 @@ module Adapters
     class OrderTicketsController < ApplicationController
 
       def index
-        @tickets = current_cart.order.tickets
+        @ticket = current_cart.order.tickets
+        
       end
 
       def create
+
         current_cart.add_ticket(
           ticket_id: params[:ticket_id],
           quantity: params[:quantity]
         )
 
-        redirect_to cart_path
+        redirect_to adapters_payments_order_tickets_path
       end
 
       def destroy

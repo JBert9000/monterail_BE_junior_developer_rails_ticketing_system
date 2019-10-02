@@ -15,8 +15,8 @@
 
   <div class="details">
 
-    <h3>Available Tickets: <%= @tickets.available_tickets %></h3>
-    <h3>Price: €<%= @tickets.price %></h3>
+    <h3>Available Tickets: <%= @ticket.available_tickets %></h3>
+    <h3>Price: €<%= @ticket.price %></h3>
 
     <br>
 
@@ -24,12 +24,14 @@
     <h4>Time: <%= @event.date.strftime("%H:%M %Z") %></h4>
     <br>
 
-    <%= form_tag order_tickets_path do %>
-      <%= hidden_field_tag :tickets_id, @tickets.id %>
+    <%= form_tag adapters_payments_order_tickets_path do %>
+      <%= hidden_field_tag :event_name, @event.name %>
+      <%= hidden_field_tag :ticket_price, @ticket.price %>
+      <%= hidden_field_tag :ticket_id, @ticket.id %>
       <%= number_field_tag :order_tickets_quantity,  1 %>
       <%= submit_tag "Add to Cart" %>
     <% end %>
 
   </div>
-  
+
 </div>

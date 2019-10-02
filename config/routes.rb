@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   namespace 'adapters' do
     namespace 'payments' do
       resources :events
+      resources :order_tickets
     end
   end
 
-  get '/cart', to: 'order_tickets#index'
-  resources :order_tickets, path: '/cart/tickets'
+  # get '/cart', to: 'order_tickets#index'
+  # resources :order_tickets, path: '/cart/tickets'
 
 end

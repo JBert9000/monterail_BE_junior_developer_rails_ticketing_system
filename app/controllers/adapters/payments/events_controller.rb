@@ -5,13 +5,13 @@ module Adapters
 
       def index
         @events = Event.order('created_at DESC')
-        @tickets = Ticket.order('created_at DESC')
+        @ticket = Ticket.order('created_at DESC')
         render template: "/adapters/payments/events"
       end
 
       def show
         @event = Event.find(params[:id])
-        @tickets = Ticket.find(params[:id])
+        @ticket = Ticket.find(params[:id])
         render template: "/adapters/payments/show_events"
       end
 

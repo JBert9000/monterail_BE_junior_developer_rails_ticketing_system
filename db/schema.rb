@@ -34,16 +34,18 @@ ActiveRecord::Schema.define(version: 2019_09_26_133025) do
   end
 
   create_table "order_tickets", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.bigint "ticket_id", null: false
     t.integer "quantity", default: 0, null: false
     t.decimal "price", precision: 15, scale: 2, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "order_id", null: false
     t.index ["order_id"], name: "index_order_tickets_on_order_id"
+    t.index ["ticket_id"], name: "index_order_tickets_on_ticket_id"
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name"
     t.decimal "sub_total", precision: 15, scale: 2, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -58,6 +60,9 @@ ActiveRecord::Schema.define(version: 2019_09_26_133025) do
   end
 
   add_foreign_key "event_tickets", "events"
+  add_foreign_key "event_tickets", "events", name: "fk_event_tickets_to_events"
   add_foreign_key "event_tickets", "tickets"
-  add_foreign_key "order_tickets", "orders"
+  add_foreign_key "event_tickets", "tickets", name: "fk_event_tickets_to_tickets"
+  add_foreign_key "order_tickets", "orders", name: "fk_order_tickets_to_order"
+  add_foreign_key "order_tickets", "tickets", name: "fk_order_tickets_to_ticket"
 end

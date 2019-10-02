@@ -6,5 +6,8 @@ class CreateEventTickets < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+
+    add_foreign_key :event_tickets, :events, name: 'fk_event_tickets_to_events'
+    add_foreign_key :event_tickets, :tickets, name: 'fk_event_tickets_to_tickets'
   end
 end
