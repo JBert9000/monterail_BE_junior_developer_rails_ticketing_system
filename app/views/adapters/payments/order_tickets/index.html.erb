@@ -10,11 +10,15 @@
     </tr>
   </thead>
   <tbody>
-    <% @ticket.each do |ticket| %>
+
+    <!-- < % @event.each do |event| %>
+      < % event.name %>
+    < % end %> -->
+    <% @tickets.each do |ticket| %>
       <tr>
-        <td><%= ticket.event.name %></td>
-        <td><%= event.ticket.price %></td>
-        <td><%= event.order_ticket.quantity %></td>
+
+        <td><%= ticket.id %></td>
+
         <td>
 
           <%= form_for ticket, method: :delete do |f| %>
@@ -22,6 +26,7 @@
           <% end %>
         </td>
       </tr>
+
     <% end %>
   </tbody>
 </table>

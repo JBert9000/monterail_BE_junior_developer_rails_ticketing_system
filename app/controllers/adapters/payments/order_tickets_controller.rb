@@ -5,11 +5,10 @@ module Adapters
 
       def index
         @ticket = current_cart.order.tickets
-        
+
       end
 
       def create
-
         current_cart.add_ticket(
           ticket_id: params[:ticket_id],
           quantity: params[:quantity]
@@ -20,7 +19,7 @@ module Adapters
 
       def destroy
         current_cart.remove_ticket(id: params[:id])
-        redirect_to cart_path
+        redirect_to adapters_payments_order_tickets_path
       end
 
     end
