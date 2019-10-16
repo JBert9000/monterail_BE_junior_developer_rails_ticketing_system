@@ -1,18 +1,15 @@
-module Adapters
-  module Payments
-
     class EventsController < ApplicationController
 
       def index
         @events = Event.order('created_at DESC')
         @ticket = Ticket.order('created_at DESC')
-        render template: "/adapters/payments/events"
+        render template: '/events/events'
       end
 
       def show
         @event = Event.find(params[:id])
         @ticket = Ticket.find(params[:id])
-        render template: "/adapters/payments/show_events"
+        render template: "/events/show_events"
       end
 
       def update
@@ -21,11 +18,8 @@ module Adapters
           @event.available_tickets -= 1
         else
           return "Error"
-          render template: "/adapters/payments/show_events"
+          render template: "/events/show_events"
         end
       end
 
     end
-
-  end
-end

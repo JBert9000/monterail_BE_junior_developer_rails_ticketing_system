@@ -10,11 +10,11 @@
     </tr>
   </thead>
   <tbody>
-
+  <%= text_area_tag(:message, @tickets) %>
     <!-- < % @event.each do |event| %>
       < % event.name %>
     < % end %> -->
-    <% @ticket.each do |ticket| %>
+    <% @tickets.each do |ticket| %>
       <tr>
 
         <td><%= ticket.id %></td>

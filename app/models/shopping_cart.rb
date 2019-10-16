@@ -5,7 +5,7 @@ class ShoppingCart
   end
 
   def order
-    @order ||= Order.find_or_create_by(token: @token) do |order|
+    @order ||= Order.find_or_initialize_by(token: @token) do |order|
       order.sub_total = 0
     end
   end
@@ -17,7 +17,7 @@ class ShoppingCart
       ticket_id: ticket_id
     )
 
-    order_ticket.price = ticket.price
+    order_ticket.sub_total = ticket.price
     order_ticket.quantity = quantity
 
     order_ticket.save

@@ -24,7 +24,7 @@
     <h4>Time: <%= @event.date.strftime("%H:%M %Z") %></h4>
     <br>
 
-    <%= form_tag adapters_payments_order_tickets_path do %>
+    <%= form_tag order_tickets_path do %>
       <%= hidden_field_tag :event_name, @event.name %>
       <%= hidden_field_tag :ticket_price, @ticket.price %>
       <%= hidden_field_tag :ticket_id, @ticket.id %>

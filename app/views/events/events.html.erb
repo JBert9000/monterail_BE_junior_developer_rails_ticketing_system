@@ -12,7 +12,7 @@
         <ul> Available Tickets: < %= ticket.available_tickets %></ul>
       < % end %> -->
 
-      <ul class="btn btn-info"><%= link_to "details", adapters_payments_event_path(event.id) %></ul></div>
+      <ul class="btn btn-info"><%= link_to "details", event_path(event.id) %></ul></div>
       <br>
     <% end %>
 
